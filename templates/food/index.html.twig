@@ -2,11 +2,15 @@
 
 {% block title %}Nutrition{% endblock %}
 
-{% block header %}Foods list{% endblock %}
+{% block header %}Foods list {{ isCalorie ? 'under 50 calories' : ""}}{% endblock %}
 
 {% block body %}
 
+    {% if isCalorie %}
 
+    {% else %}
+      <a href="{{ path('food_by_calorie', {'calorie': 50})}}", class="btn btn-outline-info m-3">Find foods under 50 calories for 100g</a>
+    {% endif %}
 
 
     <div class="foods-container">
