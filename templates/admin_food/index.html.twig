@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin{% endblock %}
+
+{% block header %}Admin Foods list{% endblock %}
+
+{% block body %}
+
+    <a href="" class="btn btn-success m-5">Add food</a>
+
+
+
+    <table class="table">
+      <tr class="table-primary">
+        <td>Image</td>
+        <td>Name</td>
+        <td>Price</td>
+        <td>Calorie</td>
+        <td>Protein</td>
+        <td>Carbohydrates</td>
+        <td>Lipids</td>
+        <td>Actions</td>
+      </tr>
+      {% for food in foods %}
+      <tr>
+        <td ><img src="{{ asset('images/' ~ food.image)}}" class="avatar"></td>
+        <td>{{ food.name|title }}</td>
+        <td>{{ food.price }}</td>
+        <td>{{ food.calorie }}</td>
+        <td>{{ food.protein }}</td>
+        <td>{{ food.carbohydrates}}</td>
+        <td>{{ food.lipids }}</td>
+        <td>
+          <a href="" class="btn btn-info">Modify</a>
+          <a href="" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+
+
+
+      {% endfor %}
+    </table>
+
+{% endblock %}
