@@ -35,7 +35,7 @@ class AppFixtures extends Fixture
         $a3 = new Food();
         $a3->setName('potatoe')
           ->setPrice(0.30)
-          ->setImage('food/potatoe.png')
+          ->setImage('food/potatoe.jpg')
           ->setCalorie(45)
           ->setProtein(0.9)
           ->setCarbohydrates(7.3)
