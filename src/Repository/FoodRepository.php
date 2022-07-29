@@ -39,6 +39,19 @@ class FoodRepository extends ServiceEntityRepository
         }
     }
 
+    public function getFoodsByCalories($calorie)
+    {
+      return $this->createQueryBuilder('f')
+                 ->andWhere('f.calorie < :val')
+                 ->setParameter('val', $calorie)
+                 ->orderBy('f.id', 'ASC')
+                 ->setMaxResults(10)
+                 ->getQuery()
+                 ->getResult()
+             ;
+
+    }
+
 //    /**
 //     * @return Food[] Returns an array of Food objects
 //     */

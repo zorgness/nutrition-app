@@ -15,7 +15,19 @@ class FoodController extends AbstractController
         $foods = $repository->findAll();
         return $this->render('food/index.html.twig', [
             'controller_name' => 'FoodController',
-            'foods' => $foods
+            'foods' => $foods,
+            "isCalorie" => false
+        ]);
+    }
+
+    #[Route('/foods/{calorie}', name: 'food_by_calorie')]
+    public function foodByCalories(FoodRepository $repository, $calorie): Response
+    {
+        $foods = $repository->getFoodsByCalories($calorie);
+        return $this->render('food/index.html.twig', [
+            'controller_name' => 'FoodController',
+            'foods' => $foods,
+            "isCalorie" => true
         ]);
     }
 }
