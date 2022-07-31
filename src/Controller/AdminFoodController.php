@@ -24,7 +24,7 @@ class AdminFoodController extends AbstractController
     }
 
     #[Route('/admin/foods/new', name: 'app_admin_food_new')]
-    #[Route('/admin/foods/{id}', name: 'app_admin_food_edit', methods: "GET|POST") ]
+    #[Route('/admin/foods/{id}', name: 'app_admin_food_edit') ]
     public function new_and_edit(Food $food = null, Request $request, EntityManagerInterface $entityManager): Response
     {
         if(!$food) {
@@ -51,7 +51,7 @@ class AdminFoodController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/destroy/{id}', name: 'admin_food_destroy', methods: 'delete')]
+    #[Route('/admin/foods/delete/{id}', name: 'food_destroy')]
     public function destroy(Food $food, Request $request, EntityManagerInterface $entityManager): Response
     {
       if($this->isCsrfTokenValid("SUP". $food->getId(), $request->get('_token')))
@@ -60,6 +60,7 @@ class AdminFoodController extends AbstractController
         $entityManager->flush();
         return $this->redirectToRoute('app_admin_food');
       }
+      return $this->redirectToRoute('foods');
 
 
 
