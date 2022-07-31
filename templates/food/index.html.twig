@@ -9,20 +9,20 @@
     {% if isAll %}
 
     {% else %}
-      <a href="{{ path('foods')}}", class="btn btn-outline-primary m-5">All foods</a>
+      <a href="{{ path('foods')}}", class="btn btn-primary m-3">All foods</a>
     {% endif %}
 
 
     {% if isCalorie %}
 
     {% else %}
-      <a href="{{ path('food_by_calorie', {'calorie': 50})}}", class="btn btn-outline-info m-5">Find foods under 50 calories for 100g</a>
+      <a href="{{ path('food_by_calorie', {'calorie': 50})}}", class="btn btn-success m-3">Find foods under 50 calories for 100g</a>
     {% endif %}
 
       {% if isCarbohydrate %}
 
       {% else %}
-           <a href="{{ path('food_by_carbohydrates', {'carbohydrates': 6})}}", class="btn btn-outline-success m-5">Find foods under 6 carbohydrates for 100g</a>
+           <a href="{{ path('food_by_carbohydrates', {'carbohydrates': 6})}}", class="btn btn-info m-3">Find foods under 6 carbohydrates for 100g</a>
       {% endif %}
 
 
