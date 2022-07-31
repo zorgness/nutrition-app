@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin Modification{% endblock %}
+
+{% block header %}{{ food.name ?  food.name|title : 'New food'}}  {% if food.image %}<img src="{{ asset('images/' ~ food.image)}}" class="avatar">{% endif %}{% endblock %}
+
+{% block body %}
+<div class="form-container m-4">
+
+    {{form_start(form)}}
+      <div>{{form_row(form.name, {'attr':{'class': 'tex-danger'}})}}</div>
+      <div>{{form_row(form.image)}}</div>
+      <div>{{form_row(form.price)}}</div>
+      <div>{{form_row(form.calorie)}}</div>
+      <div>{{form_row(form.protein)}}</div>
+      <div>{{form_row(form.carbohydrates)}}</div>
+      <div>{{form_row(form.lipids)}}</div>
+      {{form_widget(form)}}
+      <input type="submit" class="btn btn-primary" value="Submit"/>
+    {{form_end(form)}}
+
+</div>
+
+
+
+{% endblock %}
