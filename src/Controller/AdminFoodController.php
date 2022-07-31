@@ -39,6 +39,7 @@ class AdminFoodController extends AbstractController
         {
           $entityManager->persist($food);
           $entityManager->flush();
+          $this->addFlash("success", 'food have been modified');
           return $this->redirectToRoute('app_admin_food');
         }
 
@@ -58,11 +59,8 @@ class AdminFoodController extends AbstractController
       {
         $entityManager->remove($food);
         $entityManager->flush();
+        $this->addFlash("success", 'food have been deleted');
         return $this->redirectToRoute('app_admin_food');
       }
-      return $this->redirectToRoute('foods');
-
-
-
     }
 }
