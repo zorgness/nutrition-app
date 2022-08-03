@@ -23,7 +23,7 @@ class Food
     private ?float $price = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $image = null;
+    private ?string $imageName = null;
 
     #[ORM\Column]
     private ?int $calorie = null;
@@ -66,14 +66,14 @@ class Food
         return $this;
     }
 
-    public function getImage(): ?string
+    public function getImageName(): ?string
     {
-        return $this->image;
+        return $this->imageName;
     }
 
-    public function setImage(string $image): self
+    public function setImageName(string $imageName): self
     {
-        $this->image = $image;
+        $this->imageName = $imageName;
 
         return $this;
     }

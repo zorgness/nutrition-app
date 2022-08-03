@@ -31,7 +31,7 @@
       </tr>
       {% for food in foods %}
       <tr>
-        <td ><img src="{{ asset('images/' ~ food.image)}}" class="avatar"></td>
+        <td ><img src="{{ asset('images/' ~ food.imageName)}}" class="avatar"></td>
         <td>{{ food.name|title }}</td>
         <td>{{ food.price }}</td>
         <td>{{ food.calorie }}</td>
