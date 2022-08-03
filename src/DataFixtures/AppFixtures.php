@@ -15,7 +15,7 @@ class AppFixtures extends Fixture
         $a1 = new Food();
         $a1->setName('carrot')
           ->setPrice(0.40)
-          ->setImageName('food/carrot.png')
+          ->setImageName('carrot.png')
           ->setCalorie(36)
           ->setProtein(0.77)
           ->setCarbohydrates(6.45)
@@ -25,7 +25,7 @@ class AppFixtures extends Fixture
         $a2 = new Food();
         $a2->setName('apple')
           ->setPrice(0.30)
-          ->setImageName('food/apple.png')
+          ->setImageName('apple.png')
           ->setCalorie(38)
           ->setProtein(0.81)
           ->setCarbohydrates(6.27)
@@ -35,7 +35,7 @@ class AppFixtures extends Fixture
         $a3 = new Food();
         $a3->setName('potatoe')
           ->setPrice(0.30)
-          ->setImageName('food/potatoe.jpg')
+          ->setImageName('potatoe.jpg')
           ->setCalorie(80)
           ->setProtein(0.9)
           ->setCarbohydrates(7.3)
@@ -45,7 +45,7 @@ class AppFixtures extends Fixture
         $a4 = new Food();
         $a4->setName('tomatoe')
           ->setPrice(0.26)
-          ->setImageName('food/tomatoe.png')
+          ->setImageName('tomatoe.png')
           ->setCalorie(52)
           ->setProtein(0.8)
           ->setCarbohydrates(5.2)
