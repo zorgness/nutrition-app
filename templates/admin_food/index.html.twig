@@ -22,6 +22,7 @@
       <tr class="table-primary">
         <td>Image</td>
         <td>Name</td>
+        <td>Type</td>
         <td>Price</td>
         <td>Calorie</td>
         <td>Protein</td>
@@ -33,6 +34,7 @@
       <tr>
         <td ><img src="{{ asset('images/food/' ~ food.imageName)}}" class="avatar"></td>
         <td>{{ food.name|title }}</td>
+        <td>{{ food.type.label }}</td>
         <td>{{ food.price }}</td>
         <td>{{ food.calorie }}</td>
         <td>{{ food.protein }}</td>
