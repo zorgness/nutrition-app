@@ -43,6 +43,9 @@ class Food
     #[ORM\Column]
     private ?float $lipids = null;
 
+    #[ORM\ManyToOne(inversedBy: 'food')]
+    private ?Type $type = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -144,6 +147,18 @@ class Food
     public function setLipids(float $lipids): self
     {
         $this->lipids = $lipids;
+
+        return $this;
+    }
+
+    public function getType(): ?Type
+    {
+        return $this->type;
+    }
+
+    public function setType(?Type $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }
