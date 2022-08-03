@@ -14,7 +14,7 @@ class FoodType extends AbstractType
         $builder
             ->add('name')
             ->add('price')
-            ->add('image')
+            ->add('imageName')
             ->add('calorie')
             ->add('protein')
             ->add('carbohydrates')

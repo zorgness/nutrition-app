@@ -2,14 +2,14 @@
 
 {% block title %}Admin Modification{% endblock %}
 
-{% block header %}{{ food.name ?  food.name|title : 'New food'}}  {% if food.image %}<img src="{{ asset('images/' ~ food.image)}}" class="avatar">{% endif %}{% endblock %}
+{% block header %}{{ food.name ?  food.name|title : 'New food'}}  {% if food.imageName %}<img src="{{ asset('images/' ~ food.imageName)}}" class="avatar">{% endif %}{% endblock %}
 
 {% block body %}
 <div class="form-container m-4">
 
     {{form_start(form)}}
       <div>{{form_row(form.name, {'attr':{'class': 'tex-danger'}})}}</div>
-      <div>{{form_row(form.image)}}</div>
+      <div>{{form_row(form.imageName)}}</div>
       <div>{{form_row(form.price)}}</div>
       <div>{{form_row(form.calorie)}}</div>
       <div>{{form_row(form.protein)}}</div>
