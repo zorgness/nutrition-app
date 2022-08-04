@@ -2,11 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\FoodRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
+use App\Repository\FoodRepository;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 #[ORM\Entity(repositoryClass: FoodRepository::class)]
 #[Vich\Uploadable]
@@ -46,6 +47,9 @@ class Food
     #[ORM\ManyToOne(inversedBy: 'food')]
     private ?Type $type = null;
 
+    #[ORM\Column]
+    private ?\DateTimeImmutable $updated_at = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -55,11 +59,10 @@ class Food
     {
         $this->imageFile = $imageFile;
 
-        // if (null !== $imageFile) {
-        //     // It is required that at least one field changes if you are using doctrine
-        //     // otherwise the event listeners won't be called and the file is lost
-        //     $this->updatedAt = new \DateTimeImmutable();
-        // }
+        if($this->imageFile instanceof UploadedFile)
+        {
+          self::setUpdatedAt(new \DateTimeImmutable());
+        }
     }
 
     public function getImageFile(): ?File
@@ -159,6 +162,18 @@ class Food
     public function setType(?Type $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeImmutable
+    {
+        return $this->updated_at;
+    }
+
+    public function setUpdatedAt(\DateTimeImmutable $updated_at): self
+    {
+        $this->updated_at = $updated_at;
 
         return $this;
     }
