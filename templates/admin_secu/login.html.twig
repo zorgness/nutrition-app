@@ -4,6 +4,15 @@
 
 {% block body %}
 
+
+{% if error %}
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+      <strong>{{ error.messagekey }}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+
+{% endif %}
+
 <form method="POST" action="{{ path('app_login') }}" class="m-4">
   <fieldset>
     <legend>Login</legend>
