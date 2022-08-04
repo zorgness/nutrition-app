@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+
+<form method="POST" action="{{ path('app_login') }}" class="m-4">
+  <fieldset>
+    <legend>Login</legend>
+
+
+    <div class="form-group">
+      <label for="exampleInputEmail1" class="form-label mt-4">Username</label>
+      <input type="text" class="form-control" id="username" name="_username"  placeholder="Enter username">
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputEmail1" class="form-label mt-4">Password</label>
+      <input type="password" class="form-control" id="password" name="_password" placeholder="Enter password">
+    </div>
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+    <button type="submit" class="btn btn-primary m-3">Submit</button>
+</form>
+
+{% endblock %}

@@ -17,7 +17,9 @@
     </head>
     <body>
         {% include "navbar.html.twig" %}
-        <h1 class="m-3 p-2 border border-dark rounded bg-dark">{% block header %}{% endblock %}</h1>
+          {% if block('header')%}
+            <h1 class="m-3 p-2 border border-dark rounded bg-dark">{% block header %}{% endblock %}</h1>
+          {% endif %}
         {% block body %}{% endblock %}
     </body>
 </html>
