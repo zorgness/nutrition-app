@@ -2,15 +2,16 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\Messenger\Attribute\AsMessageHandler;
+use App\Repository\UserRepository;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[UniqueEntity('username', message: 'Username already exists')]
-class User
+class User implements PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -66,5 +67,20 @@ class User
         $this->verificationPassword= $verificationPassword;
 
         return $this;
+    }
+
+    public function eraseCredentials()
+    {
+
+    }
+
+    public function getSalt()
+    {
+
+    }
+
+    public function getRoles()
+    {
+      return ['ROLE_USER'];
     }
 }

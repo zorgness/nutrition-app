@@ -9,11 +9,12 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AdminSecuController extends AbstractController
 {
     #[Route('/admin/secu', name: 'app_admin_secu')]
-    public function new( Request $request, EntityManagerInterface $entityManager): Response
+    public function new( Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher): Response
     {
 
       $user = new User();
@@ -22,6 +23,11 @@ class AdminSecuController extends AbstractController
       $form->handleRequest($request);
       if($form->isSubmitted() && $form->isValid())
       {
+        $hashedPassword = $passwordHasher->hashPassword(
+          $user,
+          $user->getPassword()
+      );
+        $user->setPassword($hashedPassword);
         $entityManager->persist($user);
         $entityManager->flush();
         $this->addFlash("success", 'user have been modified');
