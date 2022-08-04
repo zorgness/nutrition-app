@@ -2,7 +2,7 @@
 
 {% block title %}Admin Modification Type{% endblock %}
 
-{% block header %}{{ food.name ?  food.name|title : 'New food'}}  {% if food.imageName %}<img src="{{ asset('images/food/' ~ food.imageName)}}" class="avatar">{% endif %}{% endblock %}
+{% block header %}{{ type.label ?  type.label|title : 'New food'}}  {% if type.image %}<img src="{{ asset('images/type/' ~ type.image)}}" class="avatar">{% endif %}{% endblock %}
 
 {% block body %}
 <div class="form-container m-4">

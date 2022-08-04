@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Admin Modification{% endblock %}
+{% block title %}Admin Modification Food{% endblock %}
 
 {% block header %}{{ food.name ?  food.name|title : 'New food'}}  {% if food.imageName %}<img src="{{ asset('images/food/' ~ food.imageName)}}" class="avatar">{% endif %}{% endblock %}
 
