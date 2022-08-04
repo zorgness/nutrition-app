@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminSecuController!{% endblock %}
+
+{% block body %}
+
+<div class="form-container m-4">
+
+    {{form_start(form)}}
+      <div>{{form_row(form.username, {'attr':{'class': 'tex-danger', 'placeholder': 'put your username'}})}}</div>
+      <div>{{form_row(form.password)}}</div>
+      <div>{{form_row(form.verificationPassword)}}</div>
+      {{form_widget(form)}}
+      <input type="submit" class="btn btn-primary" value="Submit"/>
+    {{form_end(form)}}
+
+</div>
+
+{% endblock %}
