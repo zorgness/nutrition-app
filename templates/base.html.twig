@@ -17,6 +17,18 @@
     </head>
     <body>
         {% include "navbar.html.twig" %}
+
+        {% for message in app.flashes("success")%}
+          <div class="alert alert-dismissible alert-info">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            {{ message }}
+          </div>
+        {% endfor %}
+
+        {% if app.user %}
+          <h2 class="text-white text-center m-2">{% block user %}Welcome {{ is_granted('ROLE_ADMIN') ? 'Admin ' : ''}} {{ app.user.username|title}}!!!{% endblock %}</h2>
+        {% endif %}
+
           {% if block('header')%}
             <h1 class="m-3 p-2 border border-dark rounded bg-dark">{% block header %}{% endblock %}</h1>
           {% endif %}
